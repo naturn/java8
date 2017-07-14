@@ -19,10 +19,10 @@ import java.util.Map.Entry;
 public class PatternDemo {
 
     public static void main(String[] args) {
-        String pattern = "aabb";       
+        String pattern = "aabb";
         String target = "他 他 我 我";
         PatternDemo demo = new PatternDemo();
-       System.out.println(demo.pattern(pattern, target));
+        System.out.println(demo.pattern(pattern, target));
     }
 
     private boolean pattern(String pattern, String org) {
@@ -48,7 +48,7 @@ public class PatternDemo {
             Node node = match(s, nodes);
 
             if (null != node) {
-                if (s.equals(pattern.substring(i-1,i))) {
+                if (s.equals(pattern.substring(i - 1, i))) {
                     node.addLength();
                 } else {
                     node = new Node(s, i);
@@ -88,6 +88,9 @@ public class PatternDemo {
         boolean result = false;
         for (String[] org : orgs) {
             result = match(nodes, org);
+            if (result) {
+                break;
+            }
         }
         return result;
     }
